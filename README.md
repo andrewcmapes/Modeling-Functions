@@ -1,0 +1,1 @@
+This repository is meant to eventually become a python package. Currently, there is a singular folder that contains a python file containing several class structures that organize the utility functions developed. 
