@@ -14,6 +14,12 @@ from io import StringIO
 def RMSE(Data1, Data2):
     """
     The function calculates the normalized root mean squared error for 2 given data sets.
+
+    PARAMETERS:
+        Data1. TYPE: array
+            The first data set to be used
+        Data2. TYPE: array
+            The second data set to be used
     """
     Sum = 0
     for i in range(0, len(Data1)):
