@@ -12,8 +12,8 @@ import os
 
 main = pd.DataFrame({
         "seriesid": ['CUUR0000SA0','CUUR0000SAF1','CUUR0000SA0E','CUUR0000SA0L1E'],
-        "Names": ['All Items','Food', 'Energy', 'All Items Less Food and Energy'],
-        "Weights": [100, 13.495, 6.748, 79.758]
+        "names": ['All Items','Food', 'Energy', 'All Items Less Food and Energy'],
+        "weights": [100, 13.495, 6.748, 79.758]
         })
 
 
@@ -25,13 +25,13 @@ sub = pd.DataFrame({
             'CUUR0000SAF116','CUUR0000SEGA','CUUR0000SEHA','CUUR0000SEHC','CUUR0000SEMC01',
             'CUUR0000SEMD','CUUR0000SETD','CUUR0000SETE','CUUR0000SETG01'
             ],
-        "Names": [
+        "names": [
             'All Items','Food at Home','Food Away from Home', 'Gas', 'Electricity', 'Utility Gas',
             'Apparel', 'New Vehicles', 'Used Vehicles', 'Medical Care Commodities', 'Alcohol',
             'Tobacco', 'Rent of Primary Residence', 'Owners Equivalent Rent', 'Physicians Services',
             'Hospital and Related Services','Vehicle Maintenance', 'Car Insurance', 'Air Fares'
             ],
-        "Weights": [
+        "weights": [
             100, 8.138, 5.356, 3.312, 2.464, 0.695, 2.605, 3.648, 1.921, 1.464,
             0.848, 0.541, 7.639, 26.713, 1.814, 1.983, 1.234, 2.854, 0.806
             ]
@@ -107,7 +107,7 @@ def bls(tier = 'main', years = [datetime.now().year-1, datetime.now().year]):
     # Inverting dataframe structure
     
     pivot = df.pivot(index='Date', columns='seriesID', values='value')
-    mapping = dict(codes[['seriesid', 'Names']].values)
+    mapping = dict(codes[['seriesid', 'names']].values)
     pivot = pivot.rename(columns=mapping)
     pivot.columns.name, pivot.index.name = None, None
     return pivot
