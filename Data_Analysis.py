@@ -11,16 +11,21 @@ import os
 from io import StringIO
 
 
+def RMSE(Data1, Data2):
+    """
+    The function calculates the normalized root mean squared error for 2 given data sets.
+    """
+    Sum = 0
+    for i in range(0, len(Data1)):
+        Sum += (Data1[i] - Data2[i])**2/len(Data1)
+        
+    return np.sqrt(Sum)/np.var(Data2)**(1/2)
+
 
 
 class Data_Analysis:
     @staticmethod # Utilizes the standardized RMSE
-    def RMSE(Data1, Data2):
-        Sum = 0
-        for i in range(0,len(Data1)):
-            Sum += (Data1[i] - Data2[i])**2/len(Data1)
-            
-        return np.sqrt(Sum)/np.var(Data2)**(1/2)
+    
     
     @staticmethod
     def Corr(Data1, Data2):
